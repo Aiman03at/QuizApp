@@ -8,9 +8,9 @@ $(() => {
     .done((response) => {
       const $usersList = $('#users');
       $usersList.empty();
-
-      for(const user of response.users) {
-        $(`<li class="user">`).text(user.name).appendTo($usersList);
+      console.log(response.users);
+      for(const user in response.users) {
+        $(`<li class="user">`).text(user.username).appendTo($usersList);
       }
     });
   });
