@@ -2,24 +2,37 @@
 <html lang="en">
 
 <head>
-  <title>Create Quiz Page</title>
+  <title>Attempt Quiz Page</title>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css">
+  <link rel="stylesheet" href="/vendor/border-box.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/attempt.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <h1>attempt</h1>
-  <button>hello</button>
+  <div class="quiz-container">
+    <div class="progress-tracker">
+      <p>2/5</p>
+    </div>
+    <div class="question-box">
+      <p>What is the correct way to declare a variable in JavaScript?</p>
+    </div>
+    <button class="quiz-option">v myVariable;</button>
+    <button class="quiz-option">var myVariable;</button>
+    <button class="quiz-option">variable myVariable;</button>
+    <button class="quiz-option">myVariable = var;</button>
+    <button class="next-button">Next</button>
+  </div>
 </body>
 
 </html>
