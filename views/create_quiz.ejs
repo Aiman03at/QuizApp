@@ -10,16 +10,70 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+  <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
+  <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
+  <link rel="stylesheet" href="/styles/quiz.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <h1>create_quizz</h1>
-  <button>hello</button>
+  <div class="container">
+    <form>
+      <h1>Create a New Quiz</h1>
+      <div>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+      </div>
+      <div>
+        <label for="is_private">Private Quiz:</label>
+        <input type="checkbox" id="is_private" name="is_private">
+      </div>
+
+      <!-- Questions Section -->
+      <div id="questions">
+        <% for (let i = 1; i <= 5; i++) { %>
+        <div class="question-block">
+          <h3>Question <%= i %></h3>
+          <div>
+            <label for="question_<%= i %>_text">Question Text:</label>
+            <input type="text" id="question_<%= i %>_text" name="questions[<%= i %>][question_text]" required>
+          </div>
+          <div>
+            <label for="question_<%= i %>_choice_1">Choice 1:</label>
+            <input type="text" id="question_<%= i %>_choice_1" name="questions[<%= i %>][choice_1]" required>
+          </div>
+          <div>
+            <label for="question_<%= i %>_choice_2">Choice 2:</label>
+            <input type="text" id="question_<%= i %>_choice_2" name="questions[<%= i %>][choice_2]" required>
+          </div>
+          <div>
+            <label for="question_<%= i %>_choice_3">Choice 3:</label>
+            <input type="text" id="question_<%= i %>_choice_3" name="questions[<%= i %>][choice_3]" required>
+          </div>
+          <div>
+            <label for="question_<%= i %>_choice_4">Choice 4:</label>
+            <input type="text" id="question_<%= i %>_choice_4" name="questions[<%= i %>][choice_4]" required>
+          </div>
+          <div>
+            <label for="question_<%= i %>_correct_choice">Correct Answer:</label>
+            <select id="question_<%= i %>_correct_choice" name="questions[<%= i %>][correct_choice]" required>
+              <option value="choice_1">Choice 1</option>
+              <option value="choice_2">Choice 2</option>
+              <option value="choice_3">Choice 3</option>
+              <option value="choice_4">Choice 4</option>
+            </select>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <button type="submit">Create Quiz</button>
+    </form>
+  </div>
 </body>
+
+
 
 </html>
