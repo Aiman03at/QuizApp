@@ -29,68 +29,36 @@
       <header>
         <button type="button" class="btn btn-dark">Logout</button>
         <span class="nav_tweet"> @testuser </span>
-        
         <a href="/quiz"><i class="fa-solid fa-plus"></i></a> 
         <i class="fa-solid fa-house"></i>
       </header>
     </section>
     
-    <section class ="category">
-
-       <div>
-         <h5>Select a Category</h5>
-       </div> 
-     <br>
-
-       <div class="quiz_category">
-        
-        <!---category 1-->
-        <div class="dropdown">
-          <button class="dropdown-btn">JavaScript</button>
-          <div class="dropdown-content">
-            <a href="/attempt">Quiz 1</a>
-            <a href="/attempt">Quiz 2</a>
-            <a href="link3.html">Quiz 3</a>
-          </div>
-        </div>
-        <br>
-        <!---category 2-->
-
-        <div class="dropdown">
-          <button class="dropdown-btn">HTML</button>
-          <div class="dropdown-content">
-            <a href="link1.html">Quiz 1</a>
-            <a href="link2.html">Quiz 2</a>
-            <a href="link3.html">Quiz 3</a>
-            <a href="link1.html">Quiz 1</a>
-            <a href="link2.html">Quiz 2</a>
-            <a href="link3.html">Quiz 3</a>
-          </div>
-        </div>
+    <section class="category">
+      <div>
+        <h5>Select a Category</h5>
+      </div> 
       <br>
-        <!---category 3-->
-        <div class="dropdown">
-          <button class="dropdown-btn">CSS</button>
-          <div class="dropdown-content">
-            <a href="link1.html">Quiz 1</a>
-            <a href="link2.html">Quiz 2</a>
-            <a href="link3.html">Quiz 3</a>
-          </div>
-        </div>
-      <br>
-        <!---category 4-->
-        <div class="dropdown">
-          <button class="dropdown-btn">SQL</button>
-          <div class="dropdown-content">
-            <a href="link1.html">Quiz 1</a>
-            <a href="link2.html">Quiz 2</a>
-            <a href="link3.html">Quiz 3</a>
-          </div>
-        </div>
 
-       </div>
-     </section>
-    </main>
+      <div class="quiz_category">
+        <% if (quizzesByCategory) { %>
+          <% for (const category in quizzesByCategory) { %>
+            <div class="dropdown">
+              <button class="dropdown-btn"><%= category %></button>
+              <div class="dropdown-content">
+                <% quizzesByCategory[category].forEach(quiz => { %>
+                  <a href="/attempt/<%= quiz.id %>"><%= quiz.quiz_link %></a>
+                <% }); %>
+              </div>
+            </div>
+            <br>
+          <% } %>
+        <% } else { %>
+          <p>No quizzes available</p>
+        <% } %>
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>
