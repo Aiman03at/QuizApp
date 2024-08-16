@@ -47,8 +47,13 @@
               <button class="dropdown-btn"><%= category %></button>
               <div class="dropdown-content">
                 <% quizzesByCategory[category].forEach(quiz => { %>
+                  <div class="drop">
                   <a href="/attempt/<%= quiz.id %>"><%= quiz.quiz_link %></a>
+                  <br>
+                  <a href="" onclick="copyToClipboard('<%= quiz.quiz_link %>')"><i class="fa fa-copy"></i></a> 
+                  </div>
                 <% }); %>
+                
               </div>
             </div>
             <br>

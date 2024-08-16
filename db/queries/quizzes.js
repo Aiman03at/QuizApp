@@ -3,18 +3,12 @@
 const db = require('../connection');
 
 const getAllQuizzes = () => {
-  return db.query('SELECT * FROM quizzes')
+  return db.query('SELECT * FROM quizzes WHERE is_private = FALSE;')
     .then(data => {
-      
+      console.log(data.rows);
       return data.rows;
     });
 };
-
-
-
-
-
-
 
 
 const createQuiz = ({ created_by, category, is_private }) => {

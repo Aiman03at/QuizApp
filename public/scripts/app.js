@@ -6,3 +6,10 @@ document.querySelectorAll('.dropdown-btn').forEach(function(button) {
 });
 
 
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Copied to clipboard!');
+  }, function(err) {
+    alert('Failed to copy text: ', err);
+  });
+}
