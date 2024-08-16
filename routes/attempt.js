@@ -1,10 +1,11 @@
 const express = require('express');
 const router  = express.Router();
+const { getQuestionsByQuizId }= require('../db/queries/attempt');
 
 router.get('/attempt/:id', (req, res) => {
   const quizId = req.params.id; // Get the quiz ID from the URL
 
-  getQuizWithQuestions(quizId)
+  getQuestionsByQuizId(quizId)
     .then(rows => {
       if (rows.length > 0) {
         // Group the questions under the quiz
@@ -41,3 +42,4 @@ router.get('/attempt/:id', (req, res) => {
 
 
 module.exports = router;
+
