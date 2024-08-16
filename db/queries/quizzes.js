@@ -1,4 +1,21 @@
+
+
 const db = require('../connection');
+
+const getAllQuizzes = () => {
+  return db.query('SELECT * FROM quizzes')
+    .then(data => {
+      
+      return data.rows;
+    });
+};
+
+
+
+
+
+
+
 
 const createQuiz = ({ created_by, category, is_private }) => {
   const quiz_link = "https://google.ca";
@@ -12,4 +29,5 @@ const createQuiz = ({ created_by, category, is_private }) => {
     .then(data => data.rows[0]);
 };
 
-module.exports = { createQuiz };
+module.exports = { createQuiz,getAllQuizzes };
+
