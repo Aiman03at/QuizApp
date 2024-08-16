@@ -9,6 +9,13 @@ const dbParams = {
   database: process.env.DB_NAME
 };
 
+/*const dbParams = {
+  host: "localhost",
+  port: 8080,
+  user: "labber",
+  password: "labber",
+  database: "midterm"
+};*/
 const db = new Pool(dbParams);
 
 db.connect();
