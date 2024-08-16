@@ -58,6 +58,13 @@ header button {
   width: 100%;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+.drop {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
 
 /*change color on hover*/
 .dropdown-btn:hover {
@@ -95,4 +102,21 @@ header button {
   background-color: #ABD1C6;
   
   
+}
+.quiz-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.copy-btn:hover {
+  color: #007BFF;
 }
