@@ -1,29 +1,34 @@
 const express = require('express');
 const router  = express.Router();
-const { getQuestionsByQuizId} = require('../db/queries/questions');
 
-router.get('/attempt/:id', (req, res) => {
-  const quizId = req.params.id; // Get the quiz ID from the URL
+const { getQuestionsByQuizId } = require('../db/queries/questions');
+
+router.get('/:id', (req, res) => {
+  const quizId = req.params.id;
 
   getQuestionsByQuizId(quizId)
     .then(rows => {
       if (rows.length > 0) {
-        // Group the questions under the quiz
+
         const quiz = {
-          id: rows[0].id,
-          title: rows[0].title,
-          description: rows[0].description,
+          id: quizId,
+          title: "Quiz Title",
+          description: "Quiz Description",
           questions: rows.map(row => ({
-            id: row.question_id,
+            id: row.id,
             text: row.question_text,
-            options: row.options, // Assuming options are stored as JSON or Array
+            choice_1: row.choice_1,
+            choice_2: row.choice_2,
+            choice_3: row.choice_3,
+            choice_4: row.choice_4,
           }))
         };
 
-        const currentQuestionIndex = 0; // Start with the first question
+        const currentQuestionIndex = 0;
         const question = quiz.questions[currentQuestionIndex];
-        console.log(question);
-        res.render('attempts', {
+
+        res.render('attempt', {
+
           quiz: quiz,
           question: question,
           currentQuestion: currentQuestionIndex + 1,
@@ -39,7 +44,6 @@ router.get('/attempt/:id', (req, res) => {
     });
 });
 
-getQuestionsByQuizId(3);
-
 module.exports = router;
+
 

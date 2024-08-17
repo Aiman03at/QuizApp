@@ -35,6 +35,7 @@ const quizRoutes = require('./routes/quiz');
 const attemptRoutes = require('./routes/attempt');
 const resultRoutes = require('./routes/result');
 const homepageRoutes = require('./routes/home');
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -54,9 +55,6 @@ app.use('/', homepageRoutes);
 /*app.get('/', (req, res) => {
   res.render('home');
 });*/
- 
-
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
