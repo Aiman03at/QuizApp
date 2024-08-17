@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const { getQuestionsByQuizId }= require('../db/queries/questions');
+
+const { getQuestionsByQuizId } = require('../db/queries/questions');
 
 router.get('/:id', (req, res) => {
   const quizId = req.params.id;
@@ -27,6 +28,7 @@ router.get('/:id', (req, res) => {
         const question = quiz.questions[currentQuestionIndex];
 
         res.render('attempt', {
+
           quiz: quiz,
           question: question,
           currentQuestion: currentQuestionIndex + 1,
