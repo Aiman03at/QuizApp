@@ -22,15 +22,15 @@
 <body>
   <div class="quiz-container">
     <div class="progress-tracker">
-      <p>2/5</p>
+      <p><%= currentQuestion %>/<%= totalQuestions %></p>
     </div>
     <div class="question-box">
-      <p>What is the correct way to declare a variable in JavaScript?</p>
+      <p><%= question.text %></p>
     </div>
-    <button class="quiz-option">v myVariable;</button>
-    <button class="quiz-option">var myVariable;</button>
-    <button class="quiz-option">variable myVariable;</button>
-    <button class="quiz-option">myVariable = var;</button>
+    <button class="quiz-option"><%= question.choice_1 %></button>
+    <button class="quiz-option"><%= question.choice_2 %></button>
+    <button class="quiz-option"><%= question.choice_3 %></button>
+    <button class="quiz-option"><%= question.choice_4 %></button>
     <button class="next-button">Next</button>
   </div>
 </body>

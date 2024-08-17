@@ -13,7 +13,8 @@ const createQuestion = ({ quiz_id, question_text, choice_1, choice_2, choice_3, 
 
 const getQuestionsByQuizId = (quizId) => {
   const query = `
-    SELECT * FROM questions
+    SELECT id, question_text, choice_1, choice_2, choice_3, choice_4
+    FROM questions
     WHERE quiz_id = $1
   `;
   return db.query(query, [quizId])
