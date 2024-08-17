@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { getQuestionsByQuizId }= require('../db/queries/attempt');
+const { getQuestionsByQuizId} = require('../db/queries/questions');
 
 router.get('/attempt/:id', (req, res) => {
   const quizId = req.params.id; // Get the quiz ID from the URL
@@ -22,7 +22,7 @@ router.get('/attempt/:id', (req, res) => {
 
         const currentQuestionIndex = 0; // Start with the first question
         const question = quiz.questions[currentQuestionIndex];
-
+        console.log(question);
         res.render('attempts', {
           quiz: quiz,
           question: question,
@@ -39,7 +39,7 @@ router.get('/attempt/:id', (req, res) => {
     });
 });
 
-
+getQuestionsByQuizId(3);
 
 module.exports = router;
 
