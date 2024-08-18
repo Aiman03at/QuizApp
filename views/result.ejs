@@ -29,18 +29,28 @@
       <header>
         <button type="button" class="btn btn-dark">Logout</button>
         <h4>Results</h4>
-         <i class="fa-solid fa-house"></i>
+         <a href="/"><i class="fa-solid fa-house"></i></a>
+         
       </header>
 
     </section>
     <section class="result">
+      
       <div class="score">
-        <br>
-        <br>
-        <br>
+        <h2>Your Score!</h2>
+        <div class="score-circle">
+          
+            <span><%= results.result %></span>
+              <span class="Out">Out Of</span>
+              <span>5</span>   
+          
+        
       </div>
+      </div>
+      
       <div class ="list">
-
+        <br><br>
+        <button class="share-button" onclick="copyToClipboard('http://localhost:8080/result/<%= results.id %>')">Share Results</button>
       </div>
 
     </section>

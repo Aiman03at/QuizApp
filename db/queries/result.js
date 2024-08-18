@@ -1,27 +1,27 @@
+const db = require('../connection');
 
-
-//const db = require("../connection");
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: "labber",
-  password: "labber",
-  host: "localhost",
-  database: "midterm",
-  port: 8080,
-});
 const getResultsAttemptId = (Id) => {
   const query = `
-    SELECT result from attempts where id=$1
+    SELECT id, result, result_link 
+    FROM attempts 
+    WHERE id = $1
   `;
-  return pool.query(query, [Id])
-    .then(data => data.rows)
+  return db.query(query, [Id])
+    .then(data => {
+      if (data.rows.length > 0) {
+        return data.rows[0];  // Return the first row from the result
+      } else {
+        return null;  // No result found for the given ID
+      }
+    })
     .catch(err => {
       console.error('Error executing query', err.stack);
-      throw err;
+      throw err;  // Propagate the error to be handled by the calling function
     });
 };
 
-getResultsAttemptId(1);
+module.exports = { getResultsAttemptId };
 
-module.exports = { getResultsAttemptId};
+
+
+

@@ -10,10 +10,9 @@ main {
   border-radius: 5%;
 }
 .header{
-  flex: 0 0 30%;
-  background-color:#ABD1C6 ;
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
+  flex: 0 0 10%;
+  background-color: #ABD1C6;
+  
 }
 header {
   padding: 20px;
@@ -30,25 +29,96 @@ header button {
 }
 .result{
   display:flex;
-  
+  flex: 0 0 80%;
   flex-direction: column;
 }
 
 .score{
-  flex: 0 0 40%;
+  flex: 0 0 50%;
+  background-color: #ABD1C6;
   flex-direction: column;
   display: flex;
   align-items:center;
   justify-content:start;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
   font-family:'Baloo 2' ;
   
 }
+.score-circle {
+  width: 200px;
+  height: 200px;
+  background-color: #e4e8e4;
+  color: #004643;
+  border-radius: 50%;
+  font-family:'Baloo 2' ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  top: 250px; /* Adjusts the position to be in the header */
+  /* Fancy Border and Shadow */
+  border: 4px solid transparent; /* Border with gradient */
+  
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), /* Outer shadow */
+              0 0 10px rgba(9, 140, 66, 0.5) inset; /* Inner glow */
+
+
+}
+
+.score-circle:hover {
+  /* Add a slight animation on hover */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.score-circle span{
+  
+  font-size: larger;
+}
+.score-circle hr{
+  width: max-content;
+  text-decoration: solid;
+}
 .list{
-  flex: 0 0 60%;
+  flex: 0 0 50%;
   flex-direction: column;
   display: flex;
   align-items:center;
-  justify-content:start;
+  
   font-family:'Baloo 2' ;
   
+}
+a {
+color: black;
+}
+
+.share-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #ff6b6b, #f06595, #845ef7, #5c7cfa);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.share-button:hover {
+  background: linear-gradient(45deg, #5c7cfa, #845ef7, #f06595, #ff6b6b);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.share-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 }
