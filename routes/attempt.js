@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 const { getQuestionsByQuizId } = require('../db/queries/questions');
+const { createAttempt, updateAttemptLink } = require('../db/queries/attempt');
 
 router.get('/:id', (req, res) => {
   const quizId = req.params.id;
@@ -21,6 +22,7 @@ router.get('/:id', (req, res) => {
             choice_2: row.choice_2,
             choice_3: row.choice_3,
             choice_4: row.choice_4,
+            correct_choice: row.correct_choice ///Dany added this
           }))
         };
 
@@ -41,6 +43,24 @@ router.get('/:id', (req, res) => {
     .catch(err => {
       console.error('Error retrieving quiz and questions', err);
       res.status(500).send('Internal server error');
+    });
+});
+
+router.post('/', (req, res) => {
+  const { user_id, quiz_id, result } = req.body;
+
+  createAttempt({ user_id, quiz_id, result, result_link: "google.ca" })
+    .then(attempt => {
+      const result_link = `http://localhost:8080/result/${attempt.id}`;
+
+      return updateAttemptLink(attempt.id, result_link);
+    })
+    .then(updatedAttempt => {
+      res.redirect(`/result/${updatedAttempt.id}`);
+    })
+    .catch(err => {
+      console.error('Error saving attempt:', err);
+      res.status(500).send('Error saving attempt');
     });
 });
 

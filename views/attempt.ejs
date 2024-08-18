@@ -22,17 +22,80 @@
 <body>
   <div class="quiz-container">
     <div class="progress-tracker">
-      <p><%= currentQuestion %>/<%= totalQuestions %></p>
+      <p id="progress-tracker"><%= currentQuestion %>/<%= totalQuestions %></p>
     </div>
     <div class="question-box">
-      <p><%= question.text %></p>
+      <p id="question-text"><%= question.text %></p>
     </div>
-    <button class="quiz-option"><%= question.choice_1 %></button>
-    <button class="quiz-option"><%= question.choice_2 %></button>
-    <button class="quiz-option"><%= question.choice_3 %></button>
-    <button class="quiz-option"><%= question.choice_4 %></button>
-    <button class="next-button">Next</button>
+    <button class="quiz-option" id="option1"><%= question.choice_1 %></button>
+    <button class="quiz-option" id="option2"><%= question.choice_2 %></button>
+    <button class="quiz-option" id="option3"><%= question.choice_3 %></button>
+    <button class="quiz-option" id="option4"><%= question.choice_4 %></button>
+    <button class="next-button" id="next-button">Next</button>
+
+    <!-- This is actually hidden, you will not see it in your browser -->
+    <form id="finish-form" method="POST" action="/attempt">
+      <input type="hidden" name="user_id" value="1">
+      <input type="hidden" name="quiz_id" value="<%= quiz.id %>">
+      <input type="hidden" name="result" id="result-input">
+    </form>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const quiz = <%- JSON.stringify(quiz) %>;
+      let currentQuestionIndex = <%= currentQuestion - 1 %>;
+      let correctAnswers = 0;
+      let incorrectAnswers = 0;
+
+      document.querySelectorAll('.quiz-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.quiz-option').forEach(btn => btn.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+      });
+
+      document.getElementById('next-button').addEventListener('click', () => {
+        const selectedOption = document.querySelector('.quiz-option.selected');
+        if (!selectedOption) {
+          alert('Please select an answer before moving to the next question.');
+          return;
+        }
+
+        const correctChoice = quiz.questions[currentQuestionIndex].correct_choice;
+
+        if (selectedOption.innerText === correctChoice) {
+          correctAnswers++;
+        } else {
+          incorrectAnswers++;
+        }
+
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quiz.questions.length) {
+          loadQuestion(currentQuestionIndex);
+        } else {
+          document.getElementById('result-input').value = correctAnswers;
+          document.getElementById('finish-form').submit();
+        }
+      });
+
+      function loadQuestion(index) {
+        const question = quiz.questions[index];
+
+        document.getElementById('question-text').innerText = question.text;
+        document.getElementById('option1').innerText = question.choice_1;
+        document.getElementById('option2').innerText = question.choice_2;
+        document.getElementById('option3').innerText = question.choice_3;
+        document.getElementById('option4').innerText = question.choice_4;
+
+        document.getElementById('progress-tracker').innerText = `${index + 1}/${quiz.questions.length}`;
+
+        if (index === quiz.questions.length - 1) {
+          document.getElementById('next-button').innerText = 'Finish';
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

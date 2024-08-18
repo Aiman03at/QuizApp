@@ -13,7 +13,7 @@ const createQuestion = ({ quiz_id, question_text, choice_1, choice_2, choice_3, 
 
 const getQuestionsByQuizId = (quizId) => {
   const query = `
-    SELECT id, question_text, choice_1, choice_2, choice_3, choice_4
+    SELECT id, question_text, choice_1, choice_2, choice_3, choice_4, correct_choice
     FROM questions
     WHERE quiz_id = $1
   `;

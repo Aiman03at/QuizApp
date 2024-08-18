@@ -30,6 +30,9 @@ router.post('/create', (req, res) => {
     .then(quiz => {
       const quiz_id = quiz.id;
       const questionPromises = questions.map((question) => {
+        const correct_choice_text = question[question.correct_choice];
+
+
         return questionQueries.createQuestion({
           quiz_id,
           question_text: question.question_text,
@@ -37,7 +40,7 @@ router.post('/create', (req, res) => {
           choice_2: question.choice_2,
           choice_3: question.choice_3,
           choice_4: question.choice_4,
-          correct_choice: question.correct_choice
+          correct_choice: correct_choice_text
         });
       });
 
