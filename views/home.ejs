@@ -21,23 +21,21 @@
   <script defer src="/scripts/app.js"></script>
 </head>
 
-
 <body>
-
   <main>
     <section class="header">
       <header>
-        <button type="button" class="btn btn-dark">Logout</button>
+        <button type="button" class="btn btn-dark" onclick="window.location.href='/login';">Logout</button>
         <span class="nav_tweet"> @testuser </span>
-        <a href="/quiz"><i class="fa-solid fa-plus"></i></a> 
+        <a href="/quiz"><i class="fa-solid fa-plus"></i></a>
         <i class="fa-solid fa-house"></i>
       </header>
     </section>
-    
+
     <section class="category">
       <div>
         <h5>Select a Category</h5>
-      </div> 
+      </div>
       <br>
 
       <div class="quiz_category">
@@ -48,12 +46,11 @@
               <div class="dropdown-content">
                 <% quizzesByCategory[category].forEach(quiz => { %>
                   <div class="drop">
-                  <a href="/attempt/<%= quiz.id %>"><%= quiz.quiz_link %></a>
-                  <br>
-                  <a href="" onclick="copyToClipboard('http://localhost:8080/attempt/<%= quiz.id %>')"><i class="fa fa-copy"></i></a> 
+                    <a href="/attempt/<%= quiz.id %>"><%= quiz.quiz_link %></a>
+                    <br>
+                    <a href="" onclick="copyToClipboard('http://localhost:8080/attempt/<%= quiz.id %>')"><i class="fa fa-copy"></i></a>
                   </div>
                 <% }); %>
-                
               </div>
             </div>
             <br>
@@ -65,5 +62,5 @@
     </section>
   </main>
 </body>
-
 </html>
+
