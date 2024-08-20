@@ -1,54 +1,67 @@
-body {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
   font-family: 'Baloo 2', sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .quiz-container {
-  background: #f7f7f7;
-  padding: 20px;
+  width: 375px;
+  height: 812px;
+  padding: 40px;
+  background-color: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: black;
 }
 
 .quiz-container h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.quiz-container p {
-  margin: 0;
-  font-size: 16px;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .progress-tracker {
-  margin-bottom: 40px;
-  font-size: 16px;
+  font-size: 1.2em;
   font-weight: bold;
-  color: black;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .question-box {
-  background-color: #FFFFFF;
+  width: 100%;
   padding: 20px;
+  background-color: #FFFFFF;
   border-radius: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #333;
   text-align: center;
-  font-size: 18px;
-  color: black;
 }
-
 
 .quiz-option {
   display: block;
   margin-bottom: 20px;
-  padding: 10px 15px;
-  font-size: 16px;
+  padding: 15px;
+  font-size: 1.2em;
   background-color: #FFFFFF;
-  color: white;
-  border: none;
-  border-radius: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   cursor: pointer;
   width: 100%;
   color: black;
@@ -59,19 +72,20 @@ body {
 }
 
 .next-button {
-  margin-top: 40px;
-  padding: 10px 15px;
-  font-size: 16px;
+  width: 100%;
+  padding: 15px;
   background-color: #004643;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
+  font-size: 1.4em;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
 .next-button:hover {
-  background-color: #218838;
+  background-color: darken(#004643, 10%);
 }
 
 .quiz-option.selected {
