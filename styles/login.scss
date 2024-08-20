@@ -39,12 +39,12 @@ body, html {
 
 .logo {
   display: block;
-  margin: 0 auto 30px; /* Increased margin for better spacing */
-  max-width: 120px; /* Adjust based on your logo size */
+  margin: 0 auto 30px;
+  max-width: 120px;
 }
 
 h1 {
-  font-size: 2.5em; /* Increased font size for better visibility */
+  font-size: 2.5em;
   text-align: center;
   color: #333;
   margin-bottom: 20px;
@@ -52,7 +52,7 @@ h1 {
 
 .input-group {
   width: 100%;
-  margin-bottom: 20px; /* Increased margin for better spacing */
+  margin-bottom: 20px;
 }
 
 label {
@@ -60,17 +60,17 @@ label {
   margin-bottom: 8px;
   font-weight: bold;
   color: #333;
-  font-size: 1.2em; /* Adjusted font size */
+  font-size: 1.2em;
 }
 
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 15px; /* Increased padding for better touch targets */
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f7f7f7;
-  font-size: 1.2em; /* Adjusted font size */
+  font-size: 1.2em;
 }
 
 button {
@@ -80,7 +80,7 @@ button {
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1.4em; /* Adjusted font size for better readability */
+  font-size: 1.4em;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 20px;
@@ -88,4 +88,10 @@ button {
 
 button:hover {
   background-color: darken(#004643, 10%);
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 150px;
 }
