@@ -1,4 +1,3 @@
-/* Reset some default styling */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,61 +7,83 @@
 body, html {
   height: 100%;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Baloo 2', sans-serif;
   background-color: #f7f7f7;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Prevents extra scrolling */
+  overflow: hidden;
 }
 
 .container {
-  width: 100%;
-  height: 100%; /* Full height of the viewport */
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   position: relative;
+   width: 375px;
+   height: 812px;
+   padding: 20px;
+   background-color: #ffffff;
+   border-radius: 20px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   overflow-y: auto;
+   margin-top: 20px;
 }
 
-form {
-  width: 100%;
-  max-width: 400px; /* Maximum width for the form */
-  padding: 40px;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
+.fa-house {
+  font-size: 16px !important;
+  color: #004643;
+  cursor: pointer;
+  margin-bottom: 20px;
   display: block;
-  margin: 0 auto 20px;
-  max-width: 100px; /* Adjust as needed */
+}
+
+.fa-house:hover {
+  color: darken(#004643, 10%);
+}
+
+
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: center;
-  color: #333;
+  color: #004643;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
   margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-weight: bold;
   color: #333;
+  font-size: 1.2em;
 }
 
 input[type="text"],
-input[type="password"] {
+select {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  font-size: 1em;
   background-color: #f7f7f7;
+  font-size: 1.2em;
+  margin-bottom: 15px;
 }
 
 button {
@@ -72,7 +93,7 @@ button {
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 20px;
@@ -81,3 +102,77 @@ button {
 button:hover {
   background-color: darken(#004643, 10%);
 }
+
+.question-block {
+  margin-bottom: 30px;
+}
+
+.fa-house {
+  font-size: 1.5em;
+  color: #004643;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.fa-house:hover {
+  color: darken(#004643, 10%);
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-checkbox {
+  position: relative;
+  margin-left: 10px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-checkbox label {
+  width: 24px;
+  height: 24px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  border: 2px solid #004643;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label {
+  background-color: #004643;
+  border-color: #004643;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-checkbox input[type="checkbox"]:focus + label {
+  outline: 2px solid #004643;
+}
+
+.custom-checkbox label:hover {
+  background-color: #e0e0e0;
+  border-color: #004643;
+}
+
+
