@@ -48,6 +48,7 @@ app.use('/attempt', attemptRoutes);
 app.use('/result', resultRoutes);
 app.use('/', homepageRoutes);
 app.use('/', loginRoute);
+app.use('/docs', express.static('docs'));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
