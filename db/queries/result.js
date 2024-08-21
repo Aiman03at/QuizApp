@@ -20,6 +20,15 @@ const getResultsAttemptId = (Id) => {
     });
 };
 
+const getResultList = (Id) => {
+  const query =`SELECT q.id AS question_id, q.question_text, q.correct_choice, ua.user_choice, a.result
+      FROM questions q
+      JOIN user_answers ua ON q.id = ua.question_id
+      JOIN attempts a ON a.id = ua.attempt_id
+      WHERE a.id = $1;`
+}
+
+
 module.exports = { getResultsAttemptId };
 
 

@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       // Group quizzes by category
       const quizzesByCategory = {};
       quizzes.forEach(quiz => {
-        console.log(quiz);
+        
         if (!quizzesByCategory[quiz.category]) {
           quizzesByCategory[quiz.category] = []; // Initialize the array if it doesn't exist
         }
